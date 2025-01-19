@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const server = app.listen(8080, () => {
-    console.log(`Server running on port ${server.address().port}`);
+    console.log(`Server running on http://localhost:${server.address().port}`);
 });
 app.use(express.static('public')) // ok what???? 
 console.log("imported pages")

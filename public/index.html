@@ -23,21 +23,46 @@
   <title>Galaxy</title>
 </head>
 <body>
+  <div id="stars-container"></div>
   <div class="navbar">
-    <a href="/index.html" class="button">Home</a>
-    <a href="/games.html" class="button">Games</a>
-    <a href="/apps.html" class="button">Apps</a>
-    <a href="/settings.html" class="button">Settings</a>
-    <a href="/credits.html" class="button">Credits</a>
+    <a href="/index.html">Home</a>
+    <a href="/games.html">Games</a>
+    <a href="/apps.html">Apps</a>
+    <a href="/settings.html">Settings</a>
+    <a href="/credits.html">Credits</a>
   </div>
   <div class="container">
     <h1 class="header">Galaxy</h1>
     <p class="description">Made By Cosmo</p>
-    <input type="text" class="input" placeholder="Enter a search query or URL">
-  </div>
+      <form id="uv-form">
+         <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"> 
+         <input id="uv-address" type="text" placeholder="Enter a Search Query or URL" class="form__input">
+       </form>
+   </div>
+   <script src="/vn/uv.bundle.js" defer=""></script>
+   <script src="/vn/uv.config.js" defer=""></script>
+   <script src="/vn/register-sw.js" defer=""></script>
+   <script src="/vn/search.js" defer=""></script>
+   <script src="/vn/index.js" defer=""></script>
   <div class="footer">
     <footer></footer>
   </div>
   <br><br><br>
+  <script>
+    function createStar() {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.width = star.style.height = Math.random() * 3 + 'px'; // Random star sizes
+      star.style.animationDuration = Math.random() * 5 + 3 + 's'; // Random twinkle durations
+      document.getElementById('stars-container').appendChild(star);
+    }
+  
+    for (let i = 0; i < 100; i++) { // Number of stars can be adjusted
+      createStar();
+    }
+  </script>
+  </style>
 </body>
 </html>
